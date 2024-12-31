@@ -28,6 +28,8 @@ main{
     font-size: .9rem;
 }
 
+
+
 .casal-img{
     width: 250px;
 }
@@ -83,6 +85,11 @@ main{
 
 .index-footer img{
     margin-top: -20px;
+}
+
+.index-footer img,
+.index-header img{
+    width: 100%;
 }
 
 /* gifts */
