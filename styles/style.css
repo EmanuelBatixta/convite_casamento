@@ -74,23 +74,14 @@ main{
     padding: .1rem;
     border: 3px solid orange;
     border-radius: 50%;
+    box-sizing: content-box;
 }
 
-header,
-footer{
-    margin: 0 auto;
-}
-
-footer img,
-header img{
-    min-width: 450px;
-}
-
-header img{
+.index-header img{
     margin-bottom: -120px;
 }
 
-footer img{
+.index-footer img{
     margin-top: -20px;
 }
 
@@ -107,7 +98,7 @@ footer img{
     width: 180px;
 }
 
-.item a {
+.item a{
     padding: .5rem;
     background: var(--escuro);
     display: flex;
@@ -116,11 +107,18 @@ footer img{
     color: white;
     justify-content: space-around;
     margin: .5rem 0 1rem 0;
+    cursor: pointer;
+    transition: all .3s ease;
 }
-
 .item img{
     width: 25px;
 }
+
+.item a:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px var(--serenity);
+}
+
 
 #price{
     display: flex;
@@ -134,4 +132,40 @@ footer img{
     font-style: normal;
 }
 
+dialog{
+    margin: auto;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0 50px black;
+}
 
+.modalDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--escuro);
+}
+
+dialog button{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: none;
+    padding: .5rem;
+    background: none;
+}
+
+dialog p {
+    margin-top: 2rem ;
+}
+
+dialog iframe{
+    border: none;
+}
+
+::backdrop{
+    background: black;
+    opacity: .5;
+}
