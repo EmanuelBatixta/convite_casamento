@@ -1,0 +1,63 @@
+[
+    {
+      "id": "01",
+      "nome": "Sanduichera",
+      "img": "",
+      "valor": "500,00"
+    },
+    {
+      "id": "02",
+      "nome": "Liquidificador",
+      "img": "",
+      "valor": "350,00"
+    },
+    {
+      "id": "03",
+      "nome": "Cafeteira",
+      "img": "",
+      "valor": "450,00"
+    },
+    {
+      "id": "04",
+      "nome": "Aspirador de Pó",
+      "img": "",
+      "valor": "600,00"
+    },
+    {
+      "id": "05",
+      "nome": "Micro-ondas",
+      "img": "",
+      "valor": "700,00"
+    },
+    {
+      "id": "06",
+      "nome": "Ferro de Passar",
+      "img": "",
+      "valor": "200,00"
+    },
+    {
+      "id": "07",
+      "nome": "Panela Elétrica",
+      "img": "",
+      "valor": "350,00"
+    },
+    {
+      "id": "08",
+      "nome": "Batedeira",
+      "img": "",
+      "valor": "300,00"
+    },
+    {
+      "id": "09",
+      "nome": "Torradeira",
+      "img": "",
+      "valor": "250,00"
+    },
+    {
+      "id": "10",
+      "nome": "Forno Elétrico",
+      "img": "",
+      "valor": "800,00"
+    }
+]
+  

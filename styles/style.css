@@ -22,7 +22,7 @@ main{
     justify-content: center;
     margin: auto;
     text-align: center;
-    width: 450px;
+    width: 400px;
     max-width: 700px;
     font-family: "Poppins", sans-serif;
     font-size: .9rem;
@@ -83,13 +83,55 @@ footer{
 
 footer img,
 header img{
-    min-width: 96vw;
+    min-width: 450px;
 }
 
 header img{
-    margin-bottom: -100px;
+    margin-bottom: -120px;
 }
 
 footer img{
     margin-top: -20px;
 }
+
+/* gifts */
+#gifts{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.item{
+    width: 180px;
+}
+
+.item a {
+    padding: .5rem;
+    background: var(--escuro);
+    display: flex;
+    align-items: center;
+    border-radius: .5rem;
+    color: white;
+    justify-content: space-around;
+    margin: .5rem 0 1rem 0;
+}
+
+.item img{
+    width: 25px;
+}
+
+#price{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 200;
+    font-style: italic;
+}
+
+#price h2{
+    font-style: normal;
+}
+
+
