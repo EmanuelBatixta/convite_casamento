@@ -2,39 +2,61 @@
 const localbtn = document.querySelector("#local")
 const localModal = document.querySelector("#modalLocal")
 
-localbtn.addEventListener("click",()=>{
-    localModal.innerHTML = ``;
-    const modalDiv = document.createElement("div")
+if (localModal){
+    localbtn.addEventListener("click", () => {
+        localModal.innerHTML = ``;
+        const modalDiv = document.createElement("div");
+    
+        const closeModal = document.createElement("button");
+        closeModal.setAttribute("id", "close-modal");
+        closeModal.innerHTML = "❌";
+    
+        const address = document.createElement("p");
+        const map = document.createElement("iframe");
+        const info = document.createElement("p")
+    
+        const txt = "R. Honorato, 222 - Colonial, São José dos Campos";
+    
+        map.setAttribute(
+        "src",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d774.9835653687868!2d-45.895352859152034!3d-23.28098542740808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdb57acb1828db%3A0x6322cffe32940114!2sAla%20Cidade%20Jardim%20-%20A%20igreja%20de%20Jesus%20Cristo%20dos%20santos%20dos%20ultimos%20dias!5e0!3m2!1sen!2sbr!4v1735671459853!5m2!1sen!2sbr"
+        );
+        map.setAttribute("width", "400");
+        map.setAttribute("height", "500");
+        map.setAttribute("loading", "lazy");
+        map.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+    
+        modalDiv.setAttribute("class", "modalDiv");
+        address.textContent = txt
+        address.setAttribute("class","endereço")
+        info.textContent = "Clique para copiar o endereço"
 
-    const closeModal = document.createElement('button');
-    closeModal.setAttribute('id', 'close-modal');
-    closeModal.innerHTML = '❌';
-    localModal.appendChild(closeModal);
-
-    const address = document.createElement("p")
-    const map = document.createElement("iframe")
-    map.setAttribute("src","https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d774.9835653687868!2d-45.895352859152034!3d-23.28098542740808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdb57acb1828db%3A0x6322cffe32940114!2sAla%20Cidade%20Jardim%20-%20A%20igreja%20de%20Jesus%20Cristo%20dos%20santos%20dos%20ultimos%20dias!5e0!3m2!1sen!2sbr!4v1735671459853!5m2!1sen!2sbr")
-    map.setAttribute("width","400")
-    map.setAttribute("height","500")
-    map.setAttribute("loading","lazy")
-    map.setAttribute("referrerpolicy","no-referrer-when-downgrade")
-
-    modalDiv.setAttribute("class","modalDiv")
-
-    address.textContent ="R. Honorato, 222 - Colonial, São José dos Campos"
-
-    modalDiv.appendChild(address)
-    modalDiv.appendChild(map)
-
-    localModal.appendChild(modalDiv)
-
-    localModal.showModal()
-    closeModal.addEventListener("click", ()=>{
-        localModal
-        localModal.close()
-    })
-})
-
+        modalDiv.appendChild(address);
+        modalDiv.appendChild(info);
+        modalDiv.appendChild(map);
+        modalDiv.appendChild(closeModal);
+    
+        localModal.appendChild(modalDiv);
+    
+        localModal.showModal();
+    
+        // Função para copiar o texto ao clicar no botão
+        info.addEventListener("click", () => {
+        const tempInput = document.createElement("input");
+        tempInput.value = txt;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("Texto copiado: " + txt);
+        });
+    
+        closeModal.addEventListener("click", () => {
+        localModal.close();
+        });
+    });
+ 
+}
 // gifts
 
 const list = document.querySelector("#gifts");
