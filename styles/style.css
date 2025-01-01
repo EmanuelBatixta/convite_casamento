@@ -73,11 +73,23 @@ main{
 }
 
 #galeria{
-    padding: .1rem;
-    border: 3px solid orange;
+    transition: all .5s ease;
+    animation: galeriaAni 2s infinite;
     border-radius: 50%;
-    box-sizing: content-box;
 }
+
+@keyframes galeriaAni {
+    0% {
+        box-shadow: 0px 0px 0px var(--escuro);
+    }
+    50% {
+        box-shadow: 0px 0px 25px var(--escuro);
+    }
+    100% {
+        box-shadow: 0px 0px 0px var(--escuro);
+    }
+}
+
 
 .index-header img{
     margin-bottom: -120px;
@@ -87,8 +99,8 @@ main{
     margin-top: -20px;
 }
 
-.index-footer img,
-.index-header img{
+footer img,
+header img{
     width: 100%;
 }
 
