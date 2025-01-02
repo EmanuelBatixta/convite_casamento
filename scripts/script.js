@@ -52,13 +52,49 @@ if (localModal){
         });
     
         closeModal.addEventListener("click", () => {
-        localModal.close();
+            localModal.close();
         });
     });
  
 }
-// gifts
 
+// galeria
+const galeriabtn = document.querySelector("#galeria")
+const galeriaModal = document.querySelector("#picturesList")
+
+galeriabtn.addEventListener("click", ()=>{
+    galeriaModal.innerHTML = ``;
+    //cabeçalho
+    const modalDiv = document.createElement("div");
+    const closeModal = document.createElement("button");
+    closeModal.setAttribute("id", "close-modal");
+    closeModal.innerHTML = "✘";
+    
+    const img = document.createElement("img")
+    img.setAttribute("src","images/casal.png")
+    img.setAttribute("alt","profile")
+    img.setAttribute("id","profile")
+    
+    const name = document.createElement("p")
+    name.innerHTML= "<strong>Emanuel & Joyce</strong>"
+    
+    const pictures = document.createElement("div");
+
+    modalDiv.appendChild(img)
+    modalDiv.appendChild(name)
+    modalDiv.appendChild(closeModal)
+    
+    galeriaModal.appendChild(modalDiv)
+    galeriaModal.appendChild(pictures)
+    galeriaModal.showModal();
+
+    closeModal.addEventListener("click", () => {
+        galeriaModal.close();
+    });
+})
+
+
+// gifts
 const list = document.querySelector("#gifts");
 const url = "https://raw.githubusercontent.com/EmanuelBatixta/convite_casamento/refs/heads/main/gifts.json"
 

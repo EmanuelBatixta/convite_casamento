@@ -10,7 +10,6 @@
     padding: 0;
     margin:0;
     box-sizing: border-box;
-    color: var(--escuro);
     /* background: var(--serenity);
     background-image: url(https://convite.bracael.com/clients/deboraewilliam/v2/background.jpg); */
 }
@@ -26,9 +25,9 @@ main{
     max-width: 700px;
     font-family: "Poppins", sans-serif;
     font-size: .9rem;
+    color: var(--escuro);
+
 }
-
-
 
 .casal-img{
     width: 250px;
@@ -70,12 +69,13 @@ main{
 
 .buttons a img{
     width: 75px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 #galeria{
     transition: all .5s ease;
     animation: galeriaAni 2s infinite;
-    border-radius: 50%;
 }
 
 @keyframes galeriaAni {
@@ -83,7 +83,7 @@ main{
         box-shadow: 0px 0px 0px var(--escuro);
     }
     50% {
-        box-shadow: 0px 0px 25px var(--escuro);
+        box-shadow: 0px 0px 50px var(--serenity);
     }
     100% {
         box-shadow: 0px 0px 0px var(--escuro);
@@ -138,7 +138,6 @@ header img{
     box-shadow: 0px 0px 10px var(--serenity);
 }
 
-
 #price{
     display: flex;
     justify-content: space-evenly;
@@ -151,7 +150,10 @@ header img{
     font-style: normal;
 }
 
-dialog{
+/* Modais ######################################################### */
+
+/* Modal Dialog */
+#modalLocal{
     margin: auto;
     padding: 1rem;
     border: none;
@@ -167,7 +169,7 @@ dialog{
     color: var(--escuro);
 }
 
-dialog button{
+#modalLocal button{
     position: absolute;
     top: 10px;
     right: 10px;
@@ -176,14 +178,14 @@ dialog button{
     background: none;
 }
 
-dialog .endereço {
+#modalLocal .endereço {
     margin-top: 2rem ;
     font-weight: 300;
     color: var(--escuro);
     font-style: normal;
 }
 
-dialog p {
+#modalLocal p {
     font-weight: 100;
     color: var(--serenity);
     font-style: italic;
@@ -191,8 +193,48 @@ dialog p {
     cursor: pointer;
 }
 
-dialog iframe{
+#modalLocal iframe{
     border: none;
+}
+
+/* Modal pictures */
+#picturesList{
+    margin: auto;
+    width: 95%;
+    max-width: 700px;
+    height: 90%;
+    max-height: 1080px;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 50px black;
+    color: white;
+}
+
+#picturesList button{
+    transform: scale(2);
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: white;
+    border-radius: 50%;
+}
+
+#picturesList div{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    color: white;
+    padding: 1rem;
+    border-radius: .5rem .5rem 0 0;
+    background-color: #00022e;
+}
+
+#profile{
+    width: 50px;
 }
 
 ::backdrop{
