@@ -215,13 +215,13 @@ header img{
     border: none;
     background: transparent;
     position: absolute;
-    top: 1.5rem;
+    top: 2rem;
     right: 1.5rem;
     color: white;
     border-radius: 50%;
 }
 
-#picturesList div{
+#headerFiles{
     display: flex;
     align-items: center;
     gap: .5rem;

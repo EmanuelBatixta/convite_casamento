@@ -62,36 +62,39 @@ if (localModal){
 const galeriabtn = document.querySelector("#galeria")
 const galeriaModal = document.querySelector("#picturesList")
 
-galeriabtn.addEventListener("click", ()=>{
-    galeriaModal.innerHTML = ``;
-    //cabeçalho
-    const modalDiv = document.createElement("div");
-    const closeModal = document.createElement("button");
-    closeModal.setAttribute("id", "close-modal");
-    closeModal.innerHTML = "✘";
+if(galeriabtn){
+    galeriabtn.addEventListener("click", ()=>{
+        galeriaModal.innerHTML = ``;
+        //cabeçalho
+        const modalDiv = document.createElement("div");
+        const closeModal = document.createElement("button");
+        closeModal.setAttribute("id", "close-modal");
+        closeModal.innerHTML = "✘";
+        
+        const img = document.createElement("img")
+        img.setAttribute("src","images/casal.png")
+        img.setAttribute("alt","profile")
+        img.setAttribute("id","profile")
+        modalDiv.setAttribute("id","headerFiles")
+        
+        const name = document.createElement("p")
+        name.innerHTML= "<strong>Emanuel & Joyce</strong>"
+        
+        const pictures = document.createElement("div");
     
-    const img = document.createElement("img")
-    img.setAttribute("src","images/casal.png")
-    img.setAttribute("alt","profile")
-    img.setAttribute("id","profile")
+        modalDiv.appendChild(img)
+        modalDiv.appendChild(name)
+        modalDiv.appendChild(closeModal)
+        
+        galeriaModal.appendChild(modalDiv)
+        galeriaModal.appendChild(pictures)
+        galeriaModal.showModal();
     
-    const name = document.createElement("p")
-    name.innerHTML= "<strong>Emanuel & Joyce</strong>"
-    
-    const pictures = document.createElement("div");
-
-    modalDiv.appendChild(img)
-    modalDiv.appendChild(name)
-    modalDiv.appendChild(closeModal)
-    
-    galeriaModal.appendChild(modalDiv)
-    galeriaModal.appendChild(pictures)
-    galeriaModal.showModal();
-
-    closeModal.addEventListener("click", () => {
-        galeriaModal.close();
-    });
-})
+        closeModal.addEventListener("click", () => {
+            galeriaModal.close();
+        });
+    })
+}
 
 
 // gifts
