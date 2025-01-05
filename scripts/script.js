@@ -45,7 +45,7 @@ if (localModal) {
         info.addEventListener("click", async () => {
             try {
             await navigator.clipboard.writeText(txt);
-            alert("Texto copiado: " + txt);
+            alert("Endereço copiado: " + txt);
             } catch (err) {
             console.error("Erro ao copiar texto: ", err);
             }
@@ -60,6 +60,22 @@ if (localModal) {
 // galeria
 const galeriabtn = document.querySelector("#galeria")
 const galeriaModal = document.querySelector("#picturesList")
+
+const imagens = ["01","02","03","04","05"]
+
+function setImages(){
+    let imgList = []
+    imagens.forEach(item =>{
+        const imagem = document.createElement("img")
+        imagem.setAttribute("class","slider")
+        imagem.setAttribute("alt","imagem do casal")
+        imagem.setAttribute("src",`images/stories/casal${item}.jpg`)
+        imagem.setAttribute("loading",`lazy`)
+        imgList.push(imagem)
+    })
+    imgList[0].classList.add("on")
+    return imgList
+}
 
 if(galeriabtn){
     galeriabtn.addEventListener("click", ()=>{
@@ -80,11 +96,24 @@ if(galeriabtn){
         name.innerHTML= "<strong>Emanuel & Joyce</strong>"
         
         const pictures = document.createElement("div");
+        pictures.setAttribute("class","pictures")
     
         modalDiv.appendChild(img)
         modalDiv.appendChild(name)
         modalDiv.appendChild(closeModal)
-        
+
+        const prev = document.createElement('span');
+        const next = document.createElement('span');
+        prev.setAttribute("id","prev")
+        next.setAttribute("id","next")
+        prev.innerHTML = `‹`
+        next.innerHTML = `›`
+
+        const imgList = setImages();
+        imgList.forEach(img => pictures.appendChild(img));
+        pictures.appendChild(prev)
+        pictures.appendChild(next)
+
         galeriaModal.appendChild(modalDiv)
         galeriaModal.appendChild(pictures)
         galeriaModal.showModal();
@@ -92,54 +121,42 @@ if(galeriabtn){
         closeModal.addEventListener("click", () => {
             galeriaModal.close();
         });
+
+
+        // stories
+         
+        const slider = document.querySelectorAll('.slider');
+        let currentSlide = 0;
+
+        function hideSlider() {
+            slider.forEach(item => item.classList.remove('on'))
+        }
+
+        function showSlider() {
+            slider[currentSlide].classList.add('on')
+        }
+
+        function nextSlider() {
+            hideSlider()
+            if(currentSlide === slider.length -1) {
+                currentSlide = 0
+            } else {
+                currentSlide++
+            }
+            showSlider()
+        }
+
+        function prevSlider() {
+            hideSlider()
+            if(currentSlide === 0) {
+                currentSlide = slider.length -1
+            } else {
+                currentSlide--
+            }
+            showSlider()
+        }
+
+        next.addEventListener('click', nextSlider)
+        prev.addEventListener('click', prevSlider)
     })
-}
-
-
-// gifts
-const list = document.querySelector("#gifts");
-const url = "https://raw.githubusercontent.com/EmanuelBatixta/convite_casamento/refs/heads/main/gifts.json"
-
-async function fetchProducts() {
-    try {
-        const response = await fetch(url); 
-        const products = await response.json(); 
-        return products; 
-    } catch (error) { 
-        console.error('Erro ao carregar o arquivo JSON:', error);
-    } 
-}
- 
-async function showList() {
-    const gifts = await fetchProducts();
-
-    gifts.forEach(gift => {
-        const card = document.createElement("div")
-        const name = document.createElement("p")
-        const price = document.createElement("p")
-        const img = document.createElement("img")
-        const btn = document.createElement("a")
-
-        img.setAttribute("loading","lazy")
-        img.setAttribute("alt", gift.nome)
-        img.setAttribute("src", gift.img)
-
-        name.textContent = gift.nome
-        price.innerHTML = `Por <h2>R$ ${gift.valor}</h2>`
-        btn.innerHTML = `Presentear <img src="images/market.svg" loading="lazy" alt="cart">`
-        
-        card.setAttribute("class","item")
-        price.setAttribute("id","price")
-
-        card.appendChild(img)
-        card.appendChild(name)
-        card.appendChild(price)
-        card.appendChild(btn)
-
-        list.appendChild(card)
-    });
-}
-
-if(list){
-    showList();
 }
